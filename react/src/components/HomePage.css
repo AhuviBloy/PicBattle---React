@@ -1,0 +1,695 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main container */
+.home-page-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* -------------------- Hero Section -------------------- */
+  .hero-section {
+    background-image: url(/src/assets/homepage-new.png);
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 20px;
+  }
+  
+  /* Star animations and decorations */
+  .stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
+    animation: twinkle 3s infinite ease-in-out;
+  }
+  
+  .star1 {
+    top: 15%;
+    left: 10%;
+    width: 3px;
+    height: 3px;
+    animation-delay: 0s;
+  }
+  
+  .star2 {
+    top: 60%;
+    left: 25%;
+    width: 4px;
+    height: 4px;
+    animation-delay: 0.5s;
+  }
+  
+  .star3 {
+    top: 30%;
+    right: 15%;
+    width: 3px;
+    height: 3px;
+    animation-delay: 1s;
+  }
+  
+  .orbit {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+  }
+  
+  .orbit1 {
+    top: -150px;
+    right: -150px;
+    width: 300px;
+    height: 300px;
+    transform: rotate(15deg);
+  }
+  
+  .orbit2 {
+    bottom: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    transform: rotate(45deg);
+  }
+  
+  .shooting-star {
+    position: absolute;
+    top: 20%;
+    left: -100px;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    animation: shootingStar 8s infinite ease-out;
+    transform: rotate(15deg);
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+  
+  @keyframes shootingStar {
+    0% { 
+      transform: translateX(-100px) rotate(15deg);
+      opacity: 0;
+    }
+    10% { opacity: 1; }
+    20% { 
+      transform: translateX(calc(100vw + 200px)) rotate(15deg);
+      opacity: 0;
+    }
+    100% { opacity: 0; }
+  }
+  
+  /* Hero content */
+  .hero-content {
+    text-align: center;
+    z-index: 10;
+    max-width: 800px;
+    margin-top: 30vh; /* Positioning buttons lower */
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Buttons */
+  .primary-button {
+    background: linear-gradient(135deg, #8fabff, #a78fff) !important;
+    color: #050d24 !important;
+    font-weight: 600 !important;
+    padding: 12px 30px !important;
+    border-radius: 30px !important;
+    font-size: 1rem !important;
+    text-transform: none !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(143, 171, 255, 0.4) !important;
+    border: none !important;
+  }
+  
+  .primary-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(143, 171, 255, 0.5) !important;
+  }
+  
+  .secondary-button {
+    background-color: transparent !important;
+    color: white !important;
+    font-weight: 600 !important;
+    padding: 10px 28px !important;
+    border-radius: 30px !important;
+    font-size: 1rem !important;
+    text-transform: none !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.3s ease !important;
+    border: 2px solid rgba(143, 171, 255, 0.5) !important;
+  }
+  
+  .secondary-button:hover {
+    background-color: rgba(143, 171, 255, 0.1) !important;
+    border-color: rgba(143, 171, 255, 0.8) !important;
+  }
+  
+  /* -------------------- Section Styling -------------------- */
+  section {
+    padding: 100px 20px;
+    position: relative;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .section-header h2 {
+    font-size: 2.5rem;
+    color: #050d24;
+    margin: 0;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-header h2:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #8fabff, #a78fff);
+  }
+  
+  .section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  /* -------------------- Featured Section -------------------- */
+  .featured-section {
+    background-color: #f5f7ff;
+    overflow: hidden;
+  }
+  
+  .challenge-carousel {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .challenge-card {
+    min-width: calc(25% - 30px);
+    margin: 0 15px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .challenge-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .challenge-image-container {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .challenge-image {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+  }
+  
+  .challenge-card:hover .challenge-image {
+    transform: scale(1.1);
+  }
+  
+  .challenge-info {
+    padding: 20px;
+  }
+  
+  .challenge-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #050d24;
+    margin-bottom: 8px;
+  }
+  
+  .challenge-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .challenge-votes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .vote-icon {
+    color: #ffd700;
+    font-size: 1.2rem;
+  }
+  
+  .vote-count {
+    font-weight: 600;
+    color: #050d24;
+  }
+  
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+  }
+  
+  .carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(5, 13, 36, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .carousel-dot.active {
+    background-color: #8fabff;
+    transform: scale(1.2);
+  }
+  
+  .view-all-button {
+    display: block !important;
+    margin: 40px auto 0 !important;
+  }
+  
+  @media (max-width: 1200px) {
+    .challenge-card {
+      min-width: calc(33.33% - 30px);
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .challenge-card {
+      min-width: calc(50% - 30px);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .challenge-card {
+      min-width: calc(100% - 30px);
+    }
+  }
+  
+  /* -------------------- About Section -------------------- */
+  .about-section {
+    background-color: white;
+  }
+  
+  .about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+  }
+  
+  .about-text {
+    flex: 1;
+  }
+  
+  .about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  .about-features {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .feature {
+    background: linear-gradient(135deg, #f5f7ff, #e8edff);
+    padding: 30px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .feature:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #8fabff, #a78fff);
+  }
+  
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8fabff, #a78fff);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .feature h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #050d24;
+    margin-bottom: 10px;
+  }
+  
+  .feature p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 900px) {
+    .about-content {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+  
+  /* -------------------- Stats Section -------------------- */
+  .stats-section {
+    background-image: url(/src/assets/Picbattle.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    position: relative;
+    padding: 80px 20px;
+  }
+  
+  .stats-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 13, 36, 0.8);
+  }
+  
+  .stats-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  
+  .stat-item {
+    text-align: center;
+    padding: 20px;
+    min-width: 200px;
+  }
+  
+  .stat-value {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #8fabff, #a78fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .stat-label {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  @media (max-width: 768px) {
+    .stat-item {
+      min-width: 150px;
+      padding: 15px;
+    }
+    
+    .stat-value {
+      font-size: 2.5rem;
+    }
+    
+    .stat-label {
+      font-size: 1rem;
+    }
+  }
+  
+  /* -------------------- Featured Photographers Section -------------------- */
+  .featured-photographers-section {
+    background-color: #f5f7ff;
+    padding: 100px 20px;
+  }
+  
+  .photographers-showcase {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+  }
+  
+  .photographer-card {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  
+  .photographer-card.active {
+    position: relative;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .photographer-image {
+    flex: 1;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .photographer-info {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .photographer-info h3 {
+    margin: 0;
+    font-size: 2rem;
+    color: #050d24;
+    margin-bottom: 10px;
+  }
+  
+  .photographer-specialty {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  
+  .photographer-stats {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .followers {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .followers-icon {
+    font-size: 1.2rem;
+  }
+  
+  .followers-count {
+    font-weight: 600;
+    color: #050d24;
+  }
+  
+  .achievements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .achievement-badge {
+    background: linear-gradient(135deg, rgba(143, 171, 255, 0.1), rgba(167, 143, 255, 0.1));
+    border: 1px solid rgba(143, 171, 255, 0.3);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #050d24;
+  }
+  
+  .view-profile-button {
+    align-self: flex-start;
+  }
+  
+  .photographers-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+  }
+  
+  .photographer-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(5, 13, 36, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .photographer-dot.active {
+    background-color: #8fabff;
+    transform: scale(1.2);
+  }
+  
+  @media (max-width: 900px) {
+    .photographer-card {
+      flex-direction: column;
+    }
+    
+    .photographer-image {
+      height: 250px;
+    }
+    
+    .photographer-info {
+      padding: 30px;
+    }
+  }
+  
+  /* -------------------- CTA Section -------------------- */
+  .cta-section {
+    background: linear-gradient(135deg, #050d24, #0c1f4b);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+  }
+  
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .cta-content h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  
+  .cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .cta-button {
+    padding: 15px 40px !important;
+    font-size: 1.1rem !important;
+  }
+  
+  /* -------------------- Responsive Adjustments -------------------- */
+  @media (max-width: 768px) {
+    .hero-buttons {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .section-header h2 {
+      font-size: 2rem;
+    }
+    
+    .about-content {
+      flex-direction: column;
+    }
+    
+    .cta-content h2 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    section {
+      padding: 60px 20px;
+    }
+    
+    .stats-content {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+
+
+  
+  

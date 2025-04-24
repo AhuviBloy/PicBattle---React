@@ -1,0 +1,118 @@
+/* Creation Carousel Styles */
+.creation-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    margin: 6%;
+    justify-content: center;
+  }
+  
+  .creation-card {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 24px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .creation-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  .creation-image {
+    cursor: pointer;
+    object-fit: cover;
+    height: 250px;
+    width: 100%;
+    transition: filter 0.3s ease;
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .image-container:hover .image-overlay {
+    opacity: 1;
+  }
+  
+  .overlay-content {
+    padding: 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  .overlay-title {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .overlay-creator {
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  
+  .overlay-description {
+    font-size: 0.9rem;
+    max-height: 100px;
+    overflow-y: auto;
+  }
+  
+  .vote-button {
+    background-color: transparent !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .heart-icon {
+    font-size: 1.5rem;
+    margin-right: 5px;
+    transition: transform 0.2s ease;
+  }
+  
+  .heart-icon.filled {
+    color: #e53e3e;
+  }
+  
+  .heart-icon.outline {
+    color: #e53e3e;
+  }
+  
+  .vote-button:hover .heart-icon {
+    transform: scale(1.2);
+  }
+  
+  /* Dialog styles */
+  .dialog-image {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 8px;
+    object-fit: contain;
+  }
+  
+  @media (max-width: 768px) {
+    .creation-card {
+      max-width: 100%;
+    }
+  }
