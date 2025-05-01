@@ -81,12 +81,12 @@
 
 import { useState } from "react";
 import { AppBar, Toolbar, Button, Box, IconButton } from "@mui/material";
-import Login from "./user/Login";
-import SignUp from "./user/SignUp";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
-import UserProfile from "./user/UserProfile";
-import { getUserDataFromToken } from "../utils/authUtils";
+import { getUserDataFromToken } from "../../utils/authUtils";
+import SignUp from "../user/SignUp";
+import UserProfile from "../user/UserProfile";
+import Login from "../user/Login";
 
 const Header = () => {
   const [log, setLog] = useState(false);
@@ -159,6 +159,14 @@ const Header = () => {
             onClick={() => navigate("/challengeList")}
           >
             <span className="button-text">Challenges</span>
+            <span className="button-highlight"></span>
+          </Button>
+
+          <Button 
+            className="nav-button"
+            onClick={() => navigate("/history")}
+          >
+            <span className="button-text">History</span>
             <span className="button-highlight"></span>
           </Button>
           

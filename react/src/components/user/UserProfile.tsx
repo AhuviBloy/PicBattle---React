@@ -145,7 +145,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ user, onLogout, onEditProfile
             sx={{ 
               width: 40, 
               height: 40,
-              border: '2px solid rgba(143, 171, 255, 0.7)',  
+              border: '2px solid rgba(1, 1, 1, 0.7)',  
             }}
           />
         ) : (
@@ -244,7 +244,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ user, onLogout, onEditProfile
                   height: 60,
                   border: '3px solid rgba(143, 171, 255, 0.7)',  
                   boxShadow: '0 4px 10px rgba(143, 171, 255, 0.2)',
-                  mr: 2
+                  mr: 2,
                 }}
               />
             ) : (
@@ -258,7 +258,8 @@ const UserProfile: React.FC<UserProfileProps> = ({ user, onLogout, onEditProfile
                   fontSize: '1.5rem',
                   border: '3px solid rgba(143, 171, 255, 0.5)',
                   boxShadow: '0 4px 10px rgba(143, 171, 255, 0.3)',
-                  mr: 2
+                  mr: 2,
+                  margin:2,
                 }}
               >
                 {getInitials()}
@@ -365,7 +366,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ user, onLogout, onEditProfile
             }}
             onClick={() => {
               handleClose();
-              navigate('/profile');
+              navigate('/edit-profile');
             }}
           >
             צפייה בפרופיל

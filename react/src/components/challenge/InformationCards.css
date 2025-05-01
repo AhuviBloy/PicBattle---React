@@ -13,17 +13,22 @@
   cursor: pointer;
 }
 
-.card-container div, h2, h3, p {
-  font-family: 'Rubik', sans-serif !important;
-  /* font-size: 22px !important; */
+.challenge-text h2{
+  font-size: 22px !important;
+}
+.card-container div,
+h2,
+h3,
+p {
+  font-family: "Rubik", sans-serif !important;
 }
 
-/* .card-container.hovered {
+.card-container.hovered {
   border: 2px solid #9375ff;
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(107, 138, 255, 0.2);
   background-color: rgba(0, 0, 0, 0.6);
-} */
+}
 
 /* Card icon */
 .card-icon {
@@ -35,22 +40,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  padding-top: 40px;
+  padding: 15px;
   padding-bottom: 50px;
-  border-radius: 15px;
   height: 100%;
   box-shadow: none !important;
   background-color: transparent !important;
-  overflow: visible;
+  max-height: 300px;
+  min-height: 300px;
 }
 
 /* Icon circle */
 .icon-circle {
   background-color: #fff;
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,12 +88,10 @@
   background: linear-gradient(to bottom, #6b8aff, #9375ff) !important;
   color: white !important;
   border-radius: 25px !important;
-  padding: 8px 20px !important;
+  padding: 9px 20px !important;
   font-weight: bold !important;
-  font-size: 14px !important;
-  min-width: 225px !important;
+  min-width: 268px !important;
   z-index: 10;
-  position: relative;
 }
 
 .gradient-button:hover {
@@ -159,5 +161,5 @@
   /* font-size: 24px !important; */
   text-align: center !important;
   direction: rtl !important;
-  font-family: 'Rubik', sans-serif !important; 
+  font-family: "Rubik", sans-serif !important;
 }

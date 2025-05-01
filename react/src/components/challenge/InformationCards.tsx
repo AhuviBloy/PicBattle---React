@@ -232,7 +232,7 @@ const CardItem: React.FC<CardItemProps> = ({
 
   return (
     <div 
-      className={`card-container ${isHovered ? 'hovered' : ''}`}
+      className={`card-container challenge-text ${isHovered ? 'hovered' : '' }`}
       // onMouseEnter={() => setIsHovered(true)}
       // onMouseLeave={() => setIsHovered(false)}
     >
@@ -350,7 +350,7 @@ const InformationCards: React.FC<InformationCardsProps> = ({ challenge }) => {
         endDate={challenge.endDate}
         buttonText="להצבעה והצגה"
         onButtonClick={handleCardClick}
-        challengeId={challenge.id}
+        challengeId={challenge.id}       
       />
     </Box>
   );

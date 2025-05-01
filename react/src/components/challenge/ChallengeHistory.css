@@ -1,0 +1,376 @@
+/* ChallengeHistory.css */
+/* @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap'); */
+
+:root {
+  --primary-color: #0057b8; /* כחול ישראל */
+  --primary-light: #3d7cc9;
+  --primary-dark: #003b7a;
+  --secondary-color: #ffd700; /* זהב */
+  --secondary-light: #ffea80;
+  --secondary-dark: #c7a600;
+  --white-color: #ffffff;
+  --light-gray: #f9f9f9;
+  --medium-gray: #e0e0e0;
+  --dark-gray: #555555;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+}
+
+* {
+  /* box-sizing: border-box; */
+  /* direction: rtl; */
+}
+
+/* body {
+  font-family: 'Assistant', sans-serif;
+  background-color: #f3f4f6;
+  color: #333;
+} */
+
+/* מיכל ראשי */
+.challenge-history-container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+    direction: rtl;
+
+}
+
+/* כותרת ראשית */
+.history-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.history-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trophy-icon {
+  color: var(--secondary-color);
+  margin-left: 10px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.history-subtitle {
+  color: var(--dark-gray);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* רשת הכרטיסים */
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 30px;
+}
+
+/* כרטיס אתגר בסיסי */
+.challenge-card {
+  position: relative;
+  background: var(--white-color);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+  padding: 1.5rem;
+  z-index: 1;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.challenge-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.challenge-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.challenge-card.expanded {
+  grid-column: span 2;
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* כרטיס עם זוכה */
+.has-winner {
+  border-top: 3px solid var(--secondary-color);
+}
+
+/* כרטיס ללא זוכה */
+.no-winner {
+  border-top: 3px solid var(--medium-gray);
+}
+
+/* כותרת האתגר */
+.challenge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.challenge-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+  max-width: 80%;
+}
+
+.challenge-dates {
+  display: flex;
+  align-items: center;
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+}
+
+.date-icon {
+  margin-left: 5px;
+  color: var(--primary-light);
+}
+
+/* תיאור האתגר */
+.challenge-description {
+  color: var(--dark-gray);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* מיכל התמונה הזוכה */
+.winner-container {
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.winner-image-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.winner-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.winner-image:hover {
+  transform: scale(1.05);
+}
+
+/* סימון מדליה לזוכה */
+.winner-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+  color: #000;
+  padding: 0.4rem 0.8rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.winner-badge-icon {
+  margin-left: 5px;
+}
+
+/* פרטי הזוכה */
+.winner-details {
+  padding: 1rem 0;
+}
+
+.winner-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  color: var(--dark-gray);
+  font-size: 1rem;
+  margin: -14px;
+}
+
+.stat-icon {
+  margin-left: 8px;
+  font-size: 1.1rem;
+}
+
+.creator-icon {
+  color: var(--primary-color);
+}
+
+.vote-icon {
+  color: #e53e3e;
+}
+
+.stat-label {
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.votes-count {
+  font-weight: 700;
+  color: #e53e3e;
+}
+
+/* אין זוכה */
+.no-winner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  border: 2px dashed var(--medium-gray);
+  border-radius: 12px;
+  margin: 1.5rem 0;
+}
+
+.no-image-icon {
+  font-size: 3rem;
+  color: var(--medium-gray);
+  margin-bottom: 1rem;
+}
+
+.no-winner-text {
+  color: var(--dark-gray);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* חותמת גביע */
+.trophy-watermark {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 6rem;
+  color: rgba(255, 215, 0, 0.15);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  transform: rotate(-15deg);
+}
+
+/* כפתור להצגת פרטים נוספים */
+.card-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--medium-gray);
+}
+
+.view-more {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: rgba(0, 87, 184, 0.1);
+  transition: all 0.3s ease;
+}
+
+.view-more:hover {
+  background-color: rgba(0, 87, 184, 0.2);
+}
+
+/* אנימציית טעינה */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.trophy-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trophy-loader .trophy-icon {
+  font-size: 3rem;
+  color: var(--secondary-color);
+  animation: trophy-pulse 1.5s infinite ease-in-out alternate;
+}
+
+.loading-text {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+@keyframes trophy-pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* תצוגה מותאמת למסכים קטנים יותר */
+@media (max-width: 768px) {
+  .challenge-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .challenge-card.expanded {
+    grid-column: auto;
+  }
+  
+  .history-title {
+    font-size: 2rem;
+  }
+  
+  .winner-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* אנימציות נוספות */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* .challenge-card {
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: calc(var(--animation-order) * 0.1s);
+} */

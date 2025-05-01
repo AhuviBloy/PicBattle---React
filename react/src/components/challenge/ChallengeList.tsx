@@ -1,145 +1,10 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// import { observer } from "mobx-react-lite";
-// import challengeStore from "../../stores/challengeStore";
-// import { useNavigate } from "react-router-dom";
-// import { Grid, Typography, Box } from "@mui/material";
-// import Footer2 from "../Footer2";
-// import "./ChallengeList.css";
-// import InformationCards from "./InformationCards";
-
-// const ChallengeList = observer(() => {
-//   const navigate = useNavigate();
-
-//   const handleChallengeClick = (challengeId: number) => {
-//     navigate(`/creationsForChallenge/${challengeId}`);
-//   };
-
-//   return (
-//     <div className="space-challenges-container">
-//       <Typography variant="h1" className="challenge-page-title">
-//         האתגרים הפעילים
-//         <div className="subtitle">💡 "אתגרים פעילים - זה הזמן להבריק ולהפגין את היצירתיות שלך!" 🚀✨</div>
-//       </Typography>
-      
-//       <Box className="challenges-wrapper">
-//         <Grid container spacing={3} justifyContent="center">
-//           {challengeStore.challenges.map((challenge: any) => (
-//             <Grid item xs={12} sm={6} md={4} key={challenge.id}>
-//               <InformationCards challenge={challenge} />
-//             </Grid>
-//           ))}
-//         </Grid>
-//       </Box>
-
-//       <Footer2 />
-//     </div>
-//   );
-// });
-
-// export default ChallengeList;
-
-
-
-
-
-
-
-
-
-
-
-
-// import { useState } from "react";
-// import { observer } from "mobx-react-lite";
-// import challengeStore from "../../stores/challengeStore";
-// import { useNavigate } from "react-router-dom";
-// import { Grid, Typography, Box, Button } from "@mui/material";
-// import Footer2 from "../Footer2";
-// import "./ChallengeList.css";
-// import InformationCards from "./InformationCards";
-
-// const ITEMS_PER_LOAD = 6; // מספר האתגרים שמוצגים בכל טעינה
-
-// const ChallengeList = observer(() => {
-//   const navigate = useNavigate();
-//   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_LOAD);
-
-//   const handleChallengeClick = (challengeId: number) => {
-//     navigate(`/creationsForChallenge/${challengeId}`);
-//   };
-
-//   const handleLoadMore = () => {
-//     setVisibleCount(prevCount => prevCount + ITEMS_PER_LOAD);
-//   };
-
-//   const visibleChallenges = challengeStore.challenges.slice(0, visibleCount);
-//   const hasMore = visibleCount < challengeStore.challenges.length;
-
-//   return (
-//     <div className="space-challenges-container">
-//       <Typography variant="h1" className="challenge-page-title">
-//         האתגרים הפעילים
-//         <div className="subtitle">💡 "אתגרים פעילים - זה הזמן להבריק ולהפגין את היצירתיות שלך!" 🚀✨</div>
-//       </Typography>
-      
-//       <Box className="challenges-wrapper">
-//         <Grid container spacing={3} justifyContent="center">
-//           {visibleChallenges.map((challenge: any) => (
-//             <Grid item xs={12} sm={6} md={4} key={challenge.id}>
-//               <InformationCards challenge={challenge} />
-//             </Grid>
-//           ))}
-//         </Grid>
-        
-//         {hasMore && (
-//           <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-//             <Button variant="contained" onClick={handleLoadMore}>
-//               הצג עוד
-//             </Button>
-//           </Box>
-//         )}
-//       </Box>
-
-//       <Footer2 />
-//     </div>
-//   );
-// });
-
-// export default ChallengeList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useState } from "react";
 import { observer } from "mobx-react-lite";
 import challengeStore from "../../stores/challengeStore";
 import { useNavigate } from "react-router-dom";
 import { Grid, Typography, Box, Button, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
-import Footer2 from "../Footer2";
 import "./ChallengeList.css";
 import InformationCards from "./InformationCards";
 
@@ -175,14 +40,16 @@ const ChallengeList = observer(() => {
   const visibleChallenges = sortedChallenges.slice(0, visibleCount);
   const hasMore = visibleCount < challengeStore.challenges.length;
 
+  const isChallengeAvailable = (endDate: string) => {
+    const currentDate = new Date();
+    const challengeEndDate = new Date(endDate);
+    return currentDate <= challengeEndDate;
+  };
+
   return (
     <div className="space-challenges-container">
         <section className="challenges-banner">
         </section>
-      {/* <Typography variant="h1" className="challenge-page-title">
-        האתגרים הפעילים
-        <div className="subtitle">💡 "אתגרים פעילים - זה הזמן להבריק ולהפגין את היצירתיות שלך!" 🚀✨</div>
-      </Typography> */}
 
       {/* תיבת בחירה למיון */}
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3, mb: 3 }}>
@@ -203,7 +70,15 @@ const ChallengeList = observer(() => {
         <Grid container spacing={3} justifyContent="center">
           {visibleChallenges.map((challenge: { id: number; startDate: string; endDate: string }) => (
             <Grid item xs={12} sm={6} md={4} key={challenge.id}>
-              <InformationCards challenge={challenge} />
+              <div className="relative">
+                {/* הצגת כרטיס עם כיתוב אם האתגר לא זמין להצבעה */}
+                {!isChallengeAvailable(challenge.endDate) && (
+                  <Typography variant="h6" className="not-available-text absolute top-4 left-4 text-white bg-black/50 p-2 rounded-lg">
+                    לא זמין להצבעה
+                  </Typography>
+                )}
+                <InformationCards challenge={challenge} />
+              </div>
             </Grid>
           ))}
         </Grid>
@@ -228,4 +103,3 @@ const ChallengeList = observer(() => {
 });
 
 export default ChallengeList;
-

@@ -47,17 +47,19 @@ class ChallengeStore {
     }
   }
 
-  async fetchWinner(challengeId:any) {
+  async fetchWinner(challengeId: any) {
     try {
       const res = await axios.get(`${this.url}/api/Challenge/winner/${challengeId}`);
       runInAction(() => {
         this.winnerCreation = res.data;
-        return res.data;
       });
+      return res.data; 
     } catch (err) {
       console.error("Failed to fetch winner creation", err);
+      return null;
     }
   }
+  
 
   async addChallenge(newChallenge:any) {
     try {

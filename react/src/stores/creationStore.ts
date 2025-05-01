@@ -43,32 +43,54 @@ class CreationStore {
     }
   }
 
-  async vote(creationId: number, userId: any, challengeId: number,ip:any,star:number) {
+  // async vote(creationId: number, userId: any, challengeId: number,ip:any,star:number) {
+  //   try {
+  //     const rating = {
+  //       CreationId: creationId,
+  //       ChallengeId: challengeId,
+  //       UserId: userId | 0,
+  //       Stars: star, 
+  //       IpAddress: ip || ""
+  //     };
+  
+  //     if(star==-1){
+  //       const res = await axios.delete(`${this.url}/api/rating/${ip}/${creationId}`);
+  //       if (res.status === 200) {
+  //         await this.fetchCreations(); // עדכון הסטור
+  //       }
+  //     }else{
+  //       const res = await axios.post(`${this.url}/api/rating`, rating);
+  //       if (res.status === 200) {
+  //         await this.fetchCreations(); // עדכון הסטור
+  //       }
+  //     }
+      
+  //   } catch (err) {
+  //     console.error("Failed to vote", err);
+  //   }
+  // }
+
+  async vote(creationId: number, userId: any, challengeId: number, ip: any, star: number) {
     try {
       const rating = {
         CreationId: creationId,
         ChallengeId: challengeId,
-        UserId: userId | 0,
-        Stars: star, 
+        UserId: userId || 0,
+        Stars: star,
         IpAddress: ip || ""
       };
   
-      if(star==-1){
-        const res = await axios.delete(`${this.url}/api/rating/${ip}/${creationId}`);
-        if (res.status === 200) {
-          await this.fetchCreations(); // עדכון הסטור
-        }
-      }else{
-        const res = await axios.post(`${this.url}/api/rating`, rating);
-        if (res.status === 200) {
-          await this.fetchCreations(); // עדכון הסטור
-        }
+      if (star == -1) {
+        await axios.delete(`${this.url}/api/rating/${ip}/${creationId}`);
+      } else {
+        await axios.post(`${this.url}/api/rating`, rating);
       }
-      
+      // אין קריאה ל-fetchCreations כאן! סומכים על הסטייט המעודכן ב-React.
     } catch (err) {
       console.error("Failed to vote", err);
     }
   }
+  
   
 
   async getVotedCreationsByUser(userId: any) {
@@ -110,46 +132,40 @@ class CreationStore {
 
   async fetchCreationsByChallengeId(challengeId: any) {
     try {
-      const res = await axios.get(`${this.url}/api/challenge/creations-for-challenge/${challengeId}`);
+      const res = await axios.get(`${this.url}/api/creation/${challengeId}/with-creator`);
       console.log(res.data);
       
       return res.data;
-      runInAction(() => {
-      });
+      // runInAction(() => {
+      // });
     } catch (err) {
       console.error(`Failed to fetch creations for challenge ${challengeId}`, err);
     }
   }
+
+  // async fetchCreationsByChallengeId(challengeId: any) {
+  //   try {
+  //     const res = await axios.get(`${this.url}/api/challenge/creations-for-challenge/${challengeId}`);
+  //     console.log(res.data);
+      
+  //     return res.data;
+  //     // runInAction(() => {
+  //     // });
+  //   } catch (err) {
+  //     console.error(`Failed to fetch creations for challenge ${challengeId}`, err);
+  //   }
+  // }
   
 
-//קבלת שם יוצר היצירה
-  async getCreatorOfCreation(userId: any) {
-    try {
-     console.log(userId);
-
-      const res = await axios.get(`${this.url}/api/rating/user/${userId}`);
-      console.log(res.data);
-      return res.data; // מחזיר את היצירות שהמשתמש הצביע להן
-    } catch (err) {
-      console.error("Failed to fetch voted creations by user", err);
-      return [];
-    }
-  }
-
-
-  //קבלת תאור היצירה
-  async getDescriptionOfCreation(userId: any) {
-    try {
-     console.log(userId);
-
-      const res = await axios.get(`${this.url}/api/rating/user/${userId}`);
-      console.log(res.data);
-      return res.data; // מחזיר את היצירות שהמשתמש הצביע להן
-    } catch (err) {
-      console.error("Failed to fetch voted creations by user", err);
-      return [];
-    }
-  }
+  // async getCreatorNameByCreationId(creationId: number): Promise<string> {
+  //   try {
+  //     const res = await axios.get(`${this.url}/api/creation/${creationId}/creator-name`);
+  //     return res.data.name; // או איך שמגיע מה-API
+  //   } catch (err) {
+  //     console.error("Failed to fetch creator name", err);
+  //     return "";
+  //   }
+  // }
 }
 
 

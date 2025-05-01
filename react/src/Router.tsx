@@ -23,11 +23,12 @@
 // ]);
 
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from "./components/HomePage";
 import ChallengeList from "./components/challenge/ChallengeList";
 import CreationCarousel from "./components/creation/CreationCarousel";
 import Layout from "./Layout";
 import UpdateUser from "./components/user/UpdateUser";
+import HomePage from "./components/home/HomePage";
+import ChallengeHistory from "./components/challenge/ChallengeHistory";
 
 export const myRouter = createBrowserRouter([
   // {
@@ -56,6 +57,10 @@ export const myRouter = createBrowserRouter([
       {
         path: "edit-profile",
         element: < UpdateUser />,
+      },
+      {
+        path: "history",
+        element: < ChallengeHistory />,
       },
     ],
   },

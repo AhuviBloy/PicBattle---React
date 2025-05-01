@@ -3,7 +3,6 @@ import "./HomePage.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import Footer from "./Footer";
-import UpdateUser from "./user/UpdateUser";
 
 
 // Assuming you'll fetch these from an API later
@@ -13,36 +12,37 @@ const topChallenges = [
     title: "Cosmic Dreams",
     author: "StarGazer",
     votes: 342,
-    imageUrl: "/placeholder-1.jpg",
+    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/Leonardo_Phoenix_10_updatedprompta_highly_detailed_dreamlike_a_3.jpg",
   },
   {
     id: 2,
     title: "Galaxy Explorer",
     author: "NebulaNomad",
     votes: 287,
-    imageUrl: "/placeholder-2.jpg",
+    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/1740863620627.png",
   },
   {
     id: 3,
     title: "Stellar Journey",
     author: "CosmicCreator",
     votes: 256,
-    imageUrl: "/placeholder-3.jpg",
+    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/1740932605700.png",
   },
   {
     id: 4,
     title: "Beyond the Stars",
     author: "AstralArtist",
     votes: 214,
-    imageUrl: "/placeholder-4.jpg",
+    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/Leonardo_Phoenix_10_A_magical_and_ethereal_painting_of_a_littl_1.jpg",
   },
+  
 ];
 
 const stats = [
   { value: 14520, label: "Users", suffix: "+" },
   { value: 32800, label: "Submissions", suffix: "+" },
   { value: 1250, label: "Challenges", suffix: "+" },
-  { value: 420, label: "Votes Cast", suffix: "M+" },
+  { value: 5800, label: "Votes Cast", suffix: "M+" },
 ];
 
 const featuredPhotographers = [
@@ -50,21 +50,21 @@ const featuredPhotographers = [
     name: "Alex Morgan",
     specialty: "Landscape & Nature",
     followers: 8742,
-    imageUrl: "/photographer-1.jpg",
+    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/image0_0.jpg",
     achievements: ["Photo of the Month", "Rising Star Award"],
   },
   {
     name: "Sophia Chen",
     specialty: "Portrait Photography",
     followers: 12350,
-    imageUrl: "/photographer-2.jpg",
+    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/1740862117007.png",
     achievements: ["Best Portrait 2023", "Community Choice"],
   },
   {
     name: "Marcus James",
     specialty: "Urban & Street",
     followers: 6891,
-    imageUrl: "/photographer-3.jpg",
+    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/צילום מסך 2025-04-28 020305.png",
     achievements: ["Street Scene Master", "Technical Excellence"],
   },
 ];
@@ -125,12 +125,13 @@ const HomePage= () => {
   }, [statsVisible]);
 
   // Auto-rotate featured challenges
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % topChallenges.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setActiveSlide((prev) => (prev + 1) % topChallenges.length);
+  //   }, 5000);
+  //   return () => clearInterval(interval);
+  // }, []);
+
 
   // Auto-rotate featured photographers
   useEffect(() => {
@@ -214,7 +215,7 @@ const HomePage= () => {
             ))}
           </div>
 
-          <div className="carousel-controls">
+          {/* <div className="carousel-controls">
             {topChallenges.map((_, index) => (
               <button
                 key={index}
@@ -224,7 +225,7 @@ const HomePage= () => {
                 onClick={() => setActiveSlide(index)}
               ></button>
             ))}
-          </div>
+          </div> */}
         </div>
 
         <Button
@@ -342,8 +343,8 @@ const HomePage= () => {
                     </span>
                   ))}
                 </div>
-                <Button
-                  className="view-profile-button secondary-button"
+                {/* <Button
+                  className="view-profile-button secondary-button "
                   onClick={() =>
                     navigate(
                       `/profile/${photographer.name
@@ -353,7 +354,7 @@ const HomePage= () => {
                   }
                 >
                   View Profile
-                </Button>
+                </Button> */}
               </div>
             </div>
           ))}
