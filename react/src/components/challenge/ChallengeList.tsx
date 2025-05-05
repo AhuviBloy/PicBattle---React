@@ -52,7 +52,7 @@ const ChallengeList = observer(() => {
         </section>
 
       {/* תיבת בחירה למיון */}
-      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3, mb: 3 }}>
+      {/* <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3, mb: 3 }}>
         <FormControl variant="outlined" size="small">
           <InputLabel>מיין לפי</InputLabel>
           <Select
@@ -64,19 +64,13 @@ const ChallengeList = observer(() => {
             <MenuItem value="endDate">תאריך סיום</MenuItem>
           </Select>
         </FormControl>
-      </Box>
+      </Box> */}
       
       <Box className="challenges-wrapper">
         <Grid container spacing={3} justifyContent="center">
           {visibleChallenges.map((challenge: { id: number; startDate: string; endDate: string }) => (
             <Grid item xs={12} sm={6} md={4} key={challenge.id}>
               <div className="relative">
-                {/* הצגת כרטיס עם כיתוב אם האתגר לא זמין להצבעה */}
-                {!isChallengeAvailable(challenge.endDate) && (
-                  <Typography variant="h6" className="not-available-text absolute top-4 left-4 text-white bg-black/50 p-2 rounded-lg">
-                    לא זמין להצבעה
-                  </Typography>
-                )}
                 <InformationCards challenge={challenge} />
               </div>
             </Grid>
@@ -97,7 +91,6 @@ const ChallengeList = observer(() => {
           <p className="footer-text">© 2025 PICBATTLE. All rights reserved.</p>
         </div>
       </footer>
-      {/* <Footer2 /> */}
     </div>
   );
 });

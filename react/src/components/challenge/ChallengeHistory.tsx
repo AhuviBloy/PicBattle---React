@@ -84,25 +84,25 @@
 
 
 
-import React, { useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import challengeStore from "../../stores/challengeStore";
 import { toJS } from "mobx";
 import { FaTrophy, FaHeart, FaUser, FaCalendarAlt, FaImage, FaStar, FaSpinner } from "react-icons/fa";
 import "./ChallengeHistory.css";
+import { Challenge, Winner } from "../../interfaces/interfaces";
 
 const ChallengeHistory = observer(() => {
   const [loading, setLoading] = useState(true);
-  const [winners, setWinners] = useState({});
-
+  const [winners, setWinners] =useState<Record<string, Winner>>({});
   useEffect(() => {
     const fetchData = async () => {
       await challengeStore.fetchChallenges();
-      const endedChallenges = toJS(challengeStore.challenges).filter(
+      const endedChallenges = (toJS(challengeStore.challenges)as Challenge[]).filter(
         (c) => new Date(c.endDate) < new Date()
       );
 
-      const winnersData = {};
+      const winnersData: Record<string, Winner> = {};
       for (const challenge of endedChallenges) {
         const res = await challengeStore.fetchWinner(challenge.id);
         if (res) {
@@ -132,20 +132,22 @@ const ChallengeHistory = observer(() => {
     );
   }
 
-  const endedChallenges = (challengeStore.challenges as { endDate: string; title: string }[]).filter(
+  const endedChallenges = (challengeStore.challenges as { id: string; endDate: string; title: string; description: string }[]).filter(
     (c) => new Date(c.endDate) < new Date()
   );
 
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string | number | Date) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('he-IL', { year: 'numeric', month: 'long', day: 'numeric' });
   };
 
   return (
+    <>
     <div className="challenge-history-container">
       <div className="history-header">
         <h2 className="history-title">
-          <FaTrophy className="trophy-icon" /> היסטוריית אתגרים
+          {/* <FaTrophy className="trophy-icon" /> היסטוריית אתגרים */}
+          הסטורית אתגרים
         </h2>
         <p className="history-subtitle">צפו בהישגים המרשימים של האתגרים שהסתיימו</p>
       </div>
@@ -158,7 +160,7 @@ const ChallengeHistory = observer(() => {
           return (
             <div
               key={challenge.id}
-              className={`challenge-card ${hasWinner ? 'has-winner' : 'no-winner'}`}
+              className={`challenge-card-history ${hasWinner ? 'has-winner' : 'no-winner'}`}
             >
               {hasWinner && <div className="trophy-watermark"><FaTrophy /></div>}
               
@@ -220,6 +222,12 @@ const ChallengeHistory = observer(() => {
         </div>
       )}
     </div>
+    <footer className="simple-footer">
+        <div className="footer-content">
+          <p className="footer-text">© 2025 PICBATTLE. All rights reserved.</p>
+        </div>
+      </footer>
+    </>
   );
 });
 

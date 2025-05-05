@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable, runInAction, toJS } from "mobx";
 import axios from "axios";
 
 class ChallengeStore {
@@ -28,9 +28,8 @@ class ChallengeStore {
   async fetchChallengeById(id:any) {
     try {
       const res = await axios.get(`${this.url}/api/challenge/${id}`);
-      runInAction(() => {
         this.currentChallenge = res.data;
-      });
+        return res.data;
     } catch (err) {
       console.error("Failed to fetch challenge by ID", err);
     }

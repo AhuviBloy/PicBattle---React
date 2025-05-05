@@ -50,21 +50,21 @@ const featuredPhotographers = [
     name: "Alex Morgan",
     specialty: "Landscape & Nature",
     followers: 8742,
-    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/image0_0.jpg",
+    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/%D7%A6%D7%99%D7%9C%D7%95%D7%9D%20%D7%9E%D7%A1%D7%9A%202025-04-28%20020305.png",
     achievements: ["Photo of the Month", "Rising Star Award"],
   },
   {
     name: "Sophia Chen",
     specialty: "Portrait Photography",
     followers: 12350,
-    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/1740862117007.png",
+    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/%D7%A6%D7%99%D7%9C%D7%95%D7%9D%20%D7%9E%D7%A1%D7%9A%202025-04-28%20020305.png",
     achievements: ["Best Portrait 2023", "Community Choice"],
   },
   {
     name: "Marcus James",
     specialty: "Urban & Street",
     followers: 6891,
-    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/צילום מסך 2025-04-28 020305.png",
+    imageUrl: "https://ahuvi-new.s3.us-east-1.amazonaws.com/%D7%A6%D7%99%D7%9C%D7%95%D7%9D%20%D7%9E%D7%A1%D7%9A%202025-04-28%20020305.png",
     achievements: ["Street Scene Master", "Technical Excellence"],
   },
 ];
@@ -289,7 +289,7 @@ const HomePage= () => {
         <div className="stats-overlay"></div>
         <div className="stats-content">
           {stats.map((stat, index) => (
-            <div key={index} className="stat-item">
+            <div key={index} className="stat-item-home">
               <div className="stat-value">
                 {counters[index].toLocaleString()}
                 {stat.suffix}
