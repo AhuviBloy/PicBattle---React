@@ -93,7 +93,7 @@ const Header = () => {
   const [signUp, setSignUp] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const { userId, name, email } = getUserDataFromToken();
+  const {  name, email } = getUserDataFromToken();
   
 
 

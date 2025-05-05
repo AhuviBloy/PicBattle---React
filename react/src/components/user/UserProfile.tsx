@@ -90,7 +90,6 @@
 
 import React, { useState } from 'react';
 import { IconButton, Popover, Typography, Button, Box, Avatar, Divider } from '@mui/material';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EditIcon from '@mui/icons-material/Edit';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';

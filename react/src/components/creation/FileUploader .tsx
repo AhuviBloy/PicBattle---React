@@ -668,7 +668,6 @@ import {
   Typography, 
   LinearProgress,
   Paper,
-  Divider,
   IconButton,
   Fade,
   Backdrop,
@@ -679,11 +678,11 @@ import {
 import { 
   CloudUpload, 
   Close as CloseIcon, 
-  Image as ImageIcon,
+  // Image as ImageIcon,
   Description as DescriptionIcon,
   Check as CheckIcon,
   FilePresent,
-  Lightbulb as LightbulbIcon
+  // Lightbulb as LightbulbIcon,
 } from '@mui/icons-material';
 
 const FileUploader = ({ onUploadSuccess }: { onUploadSuccess: (data: { UserId: string; FileName: string; FileType: string; Description: string; ChallengeId: string | undefined; ImageUrl: string }) => void }) => {
@@ -711,7 +710,9 @@ const FileUploader = ({ onUploadSuccess }: { onUploadSuccess: (data: { UserId: s
         const reader = new FileReader();
         reader.onloadend = () => {
           if (typeof reader.result === 'string') {
-            setPreview(reader.result);
+            if (typeof reader.result === 'string') {
+              setPreview(reader.result);
+            }
           }
         };
         reader.readAsDataURL(selectedFile);
