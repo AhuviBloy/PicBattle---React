@@ -440,7 +440,7 @@ const CardItem: React.FC<CardItemProps> = ({
   challengeId,
   isVotingClosed,
 }) => {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered] = useState(false)
   const navigate = useNavigate()
 
   const handleChallengeClick = (id: number) => {

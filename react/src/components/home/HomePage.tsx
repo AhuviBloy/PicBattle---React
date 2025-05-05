@@ -71,7 +71,7 @@ const featuredPhotographers = [
 
 const HomePage= () => {
   const navigate = useNavigate();
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide] = useState(0);
   const [activeFeatured, setActiveFeatured] = useState(0);
   const [counters, setCounters] = useState(stats.map(() => 0));
   const statsRef = useRef(null);
@@ -191,7 +191,7 @@ const HomePage= () => {
             className="carousel-container"
             style={{ transform: `translateX(-${activeSlide * 100}%)` }}
           >
-            {topChallenges.map((challenge, index) => (
+            {topChallenges.map((challenge) => (
               <div key={challenge.id} className="challenge-card">
                 <div className="challenge-image-container">
                   <div

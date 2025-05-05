@@ -821,7 +821,7 @@ const CreationCarousel = () => {
   const [challengeDescription, setcChallengeDescription] = useState("")
   const [isChallengeActive, setIsChallengeActive] = useState(true)
   const [loading, setLoading] = useState(true)
-  const [challengeData, setChallengeData] = useState<any>(null)
+  const [ setChallengeData] = useState<any>(null)
   const user = getUserDataFromToken()
   const gridRef = useRef<HTMLDivElement>(null)
 
