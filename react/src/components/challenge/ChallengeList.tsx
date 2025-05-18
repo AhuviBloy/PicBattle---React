@@ -68,7 +68,7 @@ const ChallengeList = observer(() => {
       <Box className="challenges-wrapper">
         <Grid container spacing={3} justifyContent="center">
           {visibleChallenges.map((challenge: { id: number; startDate: string; endDate: string }) => (
-            <Grid item xs={12} sm={6} md={4} key={challenge.id} >
+            <Grid item xs={12} sm={6} md={4} key={challenge.id} > 
               <div className="relative">
                 <InformationCards challenge={challenge} />
               </div>
