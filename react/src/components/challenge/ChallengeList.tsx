@@ -1,12 +1,9 @@
-
-
 import { useState } from "react";
 import { observer } from "mobx-react-lite";
 import challengeStore from "../../stores/challengeStore";
 // import { useNavigate } from "react-router-dom";
+import Grid from '@mui/material/Grid';
 import { Box, Button} from "@mui/material";
-import { Grid } from '@mui/material';
-
 import "./ChallengeList.css";
 import InformationCards from "./InformationCards";
 
@@ -71,7 +68,7 @@ const ChallengeList = observer(() => {
       <Box className="challenges-wrapper">
         <Grid container spacing={3} justifyContent="center">
           {visibleChallenges.map((challenge: { id: number; startDate: string; endDate: string }) => (
-            <Grid item xs={12} sm={6} md={4} key={challenge.id}>
+            <Grid item xs={12} sm={6} md={4} key={challenge.id} >
               <div className="relative">
                 <InformationCards challenge={challenge} />
               </div>
