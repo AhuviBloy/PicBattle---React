@@ -1,7 +1,7 @@
 // src/services/apiService.js
 import axios from 'axios';
 
-const API_BASE_URL = 'https://your-api-url.com/api';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Interceptor גלובלי – מוסיף Authorization לכל קריאה
 axios.interceptors.request.use(
@@ -25,28 +25,28 @@ axios.interceptors.response.use(
 );
 
 const apiService = {
-  getChallenges: () => axios.get(`${API_BASE_URL}/challenges`),
+  getChallenges: () => axios.get(`${apiUrl}/challenges`),
 
   createChallenge: (challengeData) =>
-    axios.post(`${API_BASE_URL}/challenges`, challengeData),
+    axios.post(`${apiUrl}/challenges`, challengeData),
 
   submitCreation: (challengeId, creationData) =>
-    axios.post(`${API_BASE_URL}/challenges/${challengeId}/creations`, creationData),
+    axios.post(`${apiUrl}/challenges/${challengeId}/creations`, creationData),
 
   voteForCreation: (creationId) =>
-    axios.post(`${API_BASE_URL}/creations/${creationId}/vote`),
+    axios.post(`${apiUrl}/creations/${creationId}/vote`),
 
   getCreationsForChallenge: (challengeId) =>
-    axios.get(`${API_BASE_URL}/challenges/${challengeId}/creations`),
+    axios.get(`${apiUrl}/challenges/${challengeId}/creations`),
 
   login: (credentials) =>
-    axios.post(`${API_BASE_URL}/auth/login`, credentials),
+    axios.post(`${apiUrl}/auth/login`, credentials),
 
   register: (userData) =>
-    axios.post(`${API_BASE_URL}/auth/register`, userData),
+    axios.post(`${apiUrl}/auth/register`, userData),
 
   getCurrentUser: () =>
-    axios.get(`${API_BASE_URL}/auth/me`),
+    axios.get(`${apiUrl}/auth/me`),
 };
 
 export default apiService;

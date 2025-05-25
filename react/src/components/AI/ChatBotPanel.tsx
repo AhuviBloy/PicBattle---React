@@ -1047,7 +1047,9 @@ export default function ChatBotPanel({
   const [loading, setLoading] = useState(false)
   const messagesEndRef = useRef<null | HTMLDivElement>(null)
   const inputRef = useRef<null | HTMLDivElement>(null)
-  const apiUrl = "https://localhost:7143" // For local testing
+  // const apiUrl = "https://localhost:7143" // For local testing
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })

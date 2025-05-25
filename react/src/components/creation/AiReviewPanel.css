@@ -1,0 +1,98 @@
+/* AI Review Panel Styles */
+.ai-review-container {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    width: 100%;
+  }
+  
+  .ai-review-button {
+    background: linear-gradient(to bottom, #6b8aff, #9375ff) !important;
+    color: white !important;
+    border-radius: 25px !important;
+    padding: 6px 15px !important;
+    font-weight: 500 !important;
+    font-size: 0.85rem !important;
+    box-shadow: 0 4px 8px rgba(107, 138, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+    text-align: center !important;
+    width: 100%;
+  }
+  
+  .ai-review-button:hover {
+    background: linear-gradient(to bottom, #5a79ee, #8264ee) !important;
+    box-shadow: 0 5px 15px rgba(147, 117, 255, 0.4) !important;
+    transform: translateY(-2px);
+  }
+  
+  .ai-loading-spinner {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    color: var(--primary-light) !important;
+  }
+  
+  .ai-response-container {
+    background-color: var(--light-bg);
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid rgba(143, 171, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    max-height: 200px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-light) var(--light-bg);
+  }
+  
+  .ai-response-container::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .ai-response-container::-webkit-scrollbar-track {
+    background: var(--light-bg);
+  }
+  
+  .ai-response-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary-light);
+    border-radius: 6px;
+  }
+  
+  .ai-response-title {
+    color: var(--primary-color) !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px;
+  }
+  
+  .ai-icon {
+    color: var(--primary-color);
+  }
+  
+  .ai-response-text {
+    color: var(--dark-gray) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    white-space: pre-line !important;
+    text-align: right !important;
+    direction: rtl !important;
+  }
+  
+  .ai-error-message {
+    color: #f44336 !important;
+    font-size: 0.9rem !important;
+    text-align: right !important;
+  }
+  
+  .ai-close-button {
+    color: var(--dark-gray) !important;
+    padding: 2px !important;
+  }
+  
+  .ai-close-button:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    color: var(--primary-color) !important;
+  }

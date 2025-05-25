@@ -16,6 +16,8 @@ const SignUp = ({ setSignUp }: { setSignUp: (signUp: boolean) => void }) => {
   const [usernameError, setUsernameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
   // Form validation
   const validateForm = () => {
@@ -61,7 +63,7 @@ const SignUp = ({ setSignUp }: { setSignUp: (signUp: boolean) => void }) => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `https://localhost:7143/api/auth/register`,
+        `${apiUrl}/api/auth/register`,
         {
           Email: emailRef.current?.value,
           Password: passwordRef.current?.value,

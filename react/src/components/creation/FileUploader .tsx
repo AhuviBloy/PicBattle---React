@@ -32,11 +32,13 @@ const FileUploader = ({ onUploadSuccess }: { onUploadSuccess: (data: { UserId: s
   const [file, setFile] = useState<File | null>(null);
   const [progress, setProgress] = useState(0);
   const [openModal, setOpenModal] = useState(false);
-  const [description, setDescription] = useState('אין תאור');
+  const [description, setDescription] = useState('');
   const [isDragging, setIsDragging] = useState(false);
   const [preview, setPreview] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { challengeId } = useParams();
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
   // שליפת פרטי המשתמש מה-token
   const { userId } = getUserDataFromToken();
@@ -96,7 +98,15 @@ const FileUploader = ({ onUploadSuccess }: { onUploadSuccess: (data: { UserId: s
 
   // פונקציה להעלאת הקובץ
   const handleUpload = async () => {
-    if (!file) return;
+    if (!description.trim()) {
+      // alert("נא למלא תיאור");
+      return;
+    }
+
+    if (!file) {
+      // alert("נא לבחור קובץ להעלאה");
+      return;
+    };
 
     try {
       const token = sessionStorage.getItem('token');
@@ -134,7 +144,7 @@ const FileUploader = ({ onUploadSuccess }: { onUploadSuccess: (data: { UserId: s
 
       // שלב 3: שמירת הקובץ בדאטה בייס
       const res2 = await axios.post(
-        `https://localhost:7143/api/creation`,
+        `${apiUrl}/api/creation`,
         {
           UserId: userId ?? '',
           FileName: file.name,
@@ -409,6 +419,7 @@ const FileUploader = ({ onUploadSuccess }: { onUploadSuccess: (data: { UserId: s
               {/* שדה תיאור */}
               <TextField
                 label=" תן תיאור ליצירה..."
+                required
                 variant="outlined"
                 fullWidth
                 multiline
@@ -463,7 +474,7 @@ const FileUploader = ({ onUploadSuccess }: { onUploadSuccess: (data: { UserId: s
                 variant="contained"
                 fullWidth
                 onClick={handleUpload}
-                disabled={!file || (progress > 0 && progress < 100)}
+                disabled={!file || !description.trim() || (progress > 0 && progress < 100)}
                 sx={{
                   py: 1.5,
                   background: 'linear-gradient(135deg, #8A4FFF 0%, #4FC1FF 100%)',

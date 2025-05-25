@@ -4,7 +4,7 @@ import axios from "axios";
 class UserStore {
   users = [];
   currentUser: any | null = null;
-  url="https://localhost:7143"
+  apiUrl = process.env.REACT_APP_API_apiUrl;
 
   token = sessionStorage.getItem("token") || "";
 
@@ -14,7 +14,7 @@ class UserStore {
 
   async fetchUser(userId:number) {
     try {
-      const res = await axios.get(`${this.url}/api/user/userId/${userId}`, {
+      const res = await axios.get(`${this.apiUrl}/api/user/userId/${userId}`, {
         // headers: { Authorization: `Bearer ${this.token}` }
       });
       runInAction(() => {
@@ -27,7 +27,7 @@ class UserStore {
 
   async login(email:any, password:any) {
     try {
-      const res = await axios.post(`${this.url}/api/auth/login`, { email, password });
+      const res = await axios.post(`${this.apiUrl}/api/auth/login`, { email, password });
       runInAction(() => {
         this.token = res.data.token;
         sessionStorage.setItem("token", this.token);
@@ -39,7 +39,7 @@ class UserStore {
 
   async register(userData:any) {
     try {
-      const res = await axios.post(`${this.url}/api/auth/register`, userData);
+      const res = await axios.post(`${this.apiUrl}/api/auth/register`, userData);
       runInAction(() => {
         this.token = res.data.token;
         sessionStorage.setItem("token", this.token);

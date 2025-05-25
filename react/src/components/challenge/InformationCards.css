@@ -164,12 +164,15 @@ p {
   font-family: "Rubik", sans-serif !important;
 }
 
+
+
+
 /* Voting Closed Badge */
-.voting-closed-badge {
+/* .voting-closed-badge {
   position: absolute;
   top: 15px;
   right: 15px;
-  /* background: linear-gradient(135deg, #6b8aff, #9375ff); */
+  background: linear-gradient(135deg, #6b8aff, #9375ff);
   background-color: gray;
   color: white;
   padding: 8px 9px;
@@ -179,7 +182,11 @@ p {
   z-index: 10;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   font-family: "Rubik", sans-serif !important;
-}
+} */
+
+
+
+
 
 /* Optional: Add a subtle animation to make the badge more noticeable */
 @keyframes badgePulse {
@@ -198,3 +205,80 @@ p {
 .voting-closed-badge {
   animation: badgePulse 2s infinite ease-in-out;
 } */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Countdown Timer Styles */
+.timer-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+}
+
+.countdown-timer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: "Rubik", sans-serif !important;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.countdown-timer.success {
+  background: linear-gradient(135deg, #4CAF50, #8BC34A);
+}
+
+.countdown-timer.warning {
+  background: linear-gradient(135deg, #FF9800, #FFC107);
+}
+
+.countdown-timer.danger {
+  background: linear-gradient(135deg, #F44336, #FF5722);
+}
+
+.countdown-timer.expired {
+  background: #9E9E9E;
+}
+
+.timer-icon {
+  font-size: 16px !important;
+}
+
+/* Optional: Add a subtle pulse animation for timers with less than 24 hours */
+@keyframes timerPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.countdown-timer.danger {
+  animation: timerPulse 2s infinite ease-in-out;
+}

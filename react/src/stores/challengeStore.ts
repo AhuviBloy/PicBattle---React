@@ -6,7 +6,8 @@ class ChallengeStore {
   currentChallenge = null;
   creationsByChallenge = [];
   winnerCreation = {};
-  url="https://localhost:7143"
+  apiUrl = process.env.REACT_APP_API_apiUrl;
+
 
 
   constructor() {
@@ -16,7 +17,7 @@ class ChallengeStore {
 
   async fetchChallenges() {
     try {
-      const res = await axios.get(`${this.url}/api/challenge`);
+      const res = await axios.get(`${this.apiUrl}/api/challenge`);
       runInAction(() => {
         this.challenges = res.data;
       });
@@ -27,7 +28,7 @@ class ChallengeStore {
 
   async fetchChallengeById(id:any) {
     try {
-      const res = await axios.get(`${this.url}/api/challenge/${id}`);
+      const res = await axios.get(`${this.apiUrl}/api/challenge/${id}`);
         this.currentChallenge = res.data;
         return res.data;
     } catch (err) {
@@ -37,7 +38,7 @@ class ChallengeStore {
 
   async fetchCreationsByChallenge(challengeId:any) {
     try {
-      const res = await axios.get(`${this.url}/api/Challenge/creationByChallenge/${challengeId}`);
+      const res = await axios.get(`${this.apiUrl}/api/Challenge/creationByChallenge/${challengeId}`);
       runInAction(() => {
         this.creationsByChallenge = res.data;
       });
@@ -48,7 +49,7 @@ class ChallengeStore {
 
   async fetchWinner(challengeId: any) {
     try {
-      const res = await axios.get(`${this.url}/api/Challenge/winner/${challengeId}`);
+      const res = await axios.get(`${this.apiUrl}/api/Challenge/winner/${challengeId}`);
       runInAction(() => {
         this.winnerCreation = res.data;
       });
@@ -62,7 +63,7 @@ class ChallengeStore {
 
   async addChallenge(newChallenge:any) {
     try {
-      await axios.post(`${this.url}/api/Challenge`, newChallenge);
+      await axios.post(`${this.apiUrl}/api/Challenge`, newChallenge);
       await this.fetchChallenges();
     } catch (err) {
       console.error("Failed to add challenge", err);
