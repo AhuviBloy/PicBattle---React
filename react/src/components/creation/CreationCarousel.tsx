@@ -409,6 +409,8 @@ const CreationCarousel = () => {
 
       try {
         // Fetch challenge data
+        console.log(challengeData);
+        
         if (challengeId) {
           const data = await challengeStore.fetchChallengeById(challengeId)
           if (data) {
