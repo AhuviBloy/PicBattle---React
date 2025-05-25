@@ -255,7 +255,7 @@
 //with timer
 import type React from "react"
 import { useState, useEffect } from "react"
-import { Box, Card, Typography, Button, IconButton, Chip } from "@mui/material"
+import { Box, Card, Typography, Button, IconButton } from "@mui/material"
 import "./InformationCards.css"
 import { useNavigate } from "react-router-dom"
 import {
@@ -396,7 +396,7 @@ const CardItem: React.FC<CardItemProps> = ({
   buttonText,
   onButtonClick,
   challengeId,
-  isVotingClosed,
+  
 }) => {
   const [isHovered] = useState(false)
   const navigate = useNavigate()

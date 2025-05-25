@@ -101,7 +101,7 @@ interface AiReviewPanelProps {
   creationUrl: string
 }
 
-const AiReviewPanel = ({ challengeTopic, challengeDescription, creationDescription, creationId, creationUrl }: AiReviewPanelProps) => {
+const AiReviewPanel = ({  challengeDescription, creationDescription, creationUrl }: AiReviewPanelProps) => {
   const [aiResponse, setAiResponse] = useState<string>("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
