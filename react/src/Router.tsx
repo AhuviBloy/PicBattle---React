@@ -29,6 +29,7 @@ import Layout from "./Layout";
 import UpdateUser from "./components/user/UpdateUser";
 import HomePage from "./components/home/HomePage";
 import ChallengeHistory from "./components/challenge/ChallengeHistory";
+import ErrorImage from "./components/ErrorImage";
 
 export const myRouter = createBrowserRouter([
   // {
@@ -40,7 +41,7 @@ export const myRouter = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <>main error</>,
+    errorElement: <><ErrorImage/></>,
     children: [
       {
         index: true,
