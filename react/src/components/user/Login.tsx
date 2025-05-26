@@ -13,7 +13,7 @@ const Login = ({ setLog }: { setLog: (log: boolean) => void }) => {
   const [loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL;
 
 
   // Form validation

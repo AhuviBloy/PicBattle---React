@@ -25,29 +25,30 @@ class UserStore {
     }
   }
 
-  async login(email:any, password:any) {
-    try {
-      const res = await axios.post(`${this.apiUrl}/api/auth/login`, { email, password });
-      runInAction(() => {
-        this.token = res.data.token;
-        sessionStorage.setItem("token", this.token);
-      });
-    } catch (err) {
-      console.error("Login failed", err);
-    }
-  }
+  // async login(email:any, password:any) {
+  //   try {
+  //     console.log();
+  //     const res = await axios.post(`${this.apiUrl}/api/auth/login`, { email, password });
+  //     runInAction(() => {
+  //       this.token = res.data.token;
+  //       sessionStorage.setItem("token", this.token);
+  //     });
+  //   } catch (err) {
+  //     console.error("Login failed", err);
+  //   }
+  // }
 
-  async register(userData:any) {
-    try {
-      const res = await axios.post(`${this.apiUrl}/api/auth/register`, userData);
-      runInAction(() => {
-        this.token = res.data.token;
-        sessionStorage.setItem("token", this.token);
-      });
-    } catch (err) {
-      console.error("Register failed", err);
-    }
-  }
+  // async register(userData:any) {
+  //   try {
+  //     const res = await axios.post(`${this.apiUrl}/api/auth/register`, userData);
+  //     runInAction(() => {
+  //       this.token = res.data.token;
+  //       sessionStorage.setItem("token", this.token);
+  //     });
+  //   } catch (err) {
+  //     console.error("Register failed", err);
+  //   }
+  // }
 
   logout() {
     this.token = "";
