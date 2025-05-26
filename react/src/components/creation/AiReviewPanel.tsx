@@ -106,7 +106,7 @@ const AiReviewPanel = ({  challengeDescription, creationDescription, creationUrl
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const [showResponse, setShowResponse] = useState(false)
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL;
 
 
   const handleGetAiReview = async () => {

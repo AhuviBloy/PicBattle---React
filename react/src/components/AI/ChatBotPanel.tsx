@@ -1048,7 +1048,7 @@ export default function ChatBotPanel({
   const messagesEndRef = useRef<null | HTMLDivElement>(null)
   const inputRef = useRef<null | HTMLDivElement>(null)
   // const apiUrl = "https://localhost:7143" // For local testing
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL;
 
 
   const scrollToBottom = () => {

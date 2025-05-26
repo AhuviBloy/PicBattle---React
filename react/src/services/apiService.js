@@ -1,7 +1,7 @@
 // src/services/apiService.js
 import axios from 'axios';
 
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = import.meta.env.VITE_API_URL;
 
 // Interceptor גלובלי – מוסיף Authorization לכל קריאה
 axios.interceptors.request.use(

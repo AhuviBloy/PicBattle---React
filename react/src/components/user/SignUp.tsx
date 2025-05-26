@@ -16,7 +16,7 @@ const SignUp = ({ setSignUp }: { setSignUp: (signUp: boolean) => void }) => {
   const [usernameError, setUsernameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL;
 
 
   // Form validation

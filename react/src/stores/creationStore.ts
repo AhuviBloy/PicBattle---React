@@ -2,7 +2,8 @@ import { makeAutoObservable, runInAction } from "mobx";
 import axios from "axios";
 
 class CreationStore {
-  apiUrl = process.env.REACT_APP_API_apiUrl;  creations = [];
+  apiUrl = import.meta.env.VITE_API_URL;
+  creations = [];
   currentCreation = null;
   creationsByChallenge = [];
   

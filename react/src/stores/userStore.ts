@@ -4,7 +4,7 @@ import axios from "axios";
 class UserStore {
   users = [];
   currentUser: any | null = null;
-  apiUrl = process.env.REACT_APP_API_apiUrl;
+  apiUrl = import.meta.env.VITE_API_URL;
 
   token = sessionStorage.getItem("token") || "";
 

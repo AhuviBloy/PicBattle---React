@@ -37,7 +37,7 @@ const FileUploader = ({ onUploadSuccess }: { onUploadSuccess: (data: { UserId: s
   const [preview, setPreview] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { challengeId } = useParams();
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL;
 
 
   // שליפת פרטי המשתמש מה-token
@@ -117,7 +117,7 @@ const FileUploader = ({ onUploadSuccess }: { onUploadSuccess: (data: { UserId: s
       }
 
       // שלב 1: קבלת Presigned URL מהשרת
-      const res = await axios.get('https://localhost:7143/api/creation/upload-url', {
+      const res = await axios.get(`${apiUrl}/api/creation/upload-url`, {
         params: {
           fileName: file.name,
           contentType: file.type,
