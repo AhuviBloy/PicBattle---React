@@ -27,13 +27,13 @@ const CreationCarousel = () => {
   const [challengeData, setChallengeData] = useState<any>(null)
   const user = getUserDataFromToken()
   const gridRef = useRef<HTMLDivElement>(null)
-  const { alerts, showAlert, removeAlert } = useAlert();
+  const {  showAlert } = useAlert();
 
 
 
-  const handleSuccess = (msg:string): void => {
-    showAlert(msg, 'success', 3000);
-  };
+  // const handleSuccess = (msg:string): void => {
+  //   showAlert(msg, 'success', 3000);
+  // };
 
   const handleError = (msg:string): void => {
     showAlert(msg, 'error', 4000);
