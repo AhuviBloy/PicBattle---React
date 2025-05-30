@@ -5,6 +5,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
 import { FormEvent, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ setLog }: { setLog: (log: boolean) => void }) => {
   const [open, setOpen] = useState(false);
@@ -13,6 +14,7 @@ const Login = ({ setLog }: { setLog: (log: boolean) => void }) => {
   const [loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
 
 
@@ -67,6 +69,7 @@ const Login = ({ setLog }: { setLog: (log: boolean) => void }) => {
         sessionStorage.setItem("token", res.data.token);
         setLog(true);
         setOpen(false);
+        navigate("/");
       }
     } catch (e: any) {
       console.log(e);

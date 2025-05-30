@@ -206,7 +206,7 @@
 }
 
 /* Description styling */
-.description-container {
+/* .description-container {
   background-color: var(--light-bg);
   padding: 12px;
   border-radius: 12px;
@@ -228,7 +228,7 @@
   line-height: 1.5 !important;
   margin: 0 !important;
   text-align: right !important;
-}
+} */
 
 /* Bottom section with creator and votes */
 .bottom-section {
@@ -374,11 +374,11 @@
   margin-bottom: 15px;
 }
 
-.modal-description {
+/* .modal-description {
   font-size: 1rem;
   color: var(--dark-gray);
   line-height: 1.6;
-}
+} */
 
 /* No creations state */
 .no-creations {
@@ -480,31 +480,87 @@
   }
 }
 
-/* Loading animation */
+/* סטיילים לטעינה בסיסית ונעימה */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background-color: #f8f9fa;
+}
+
+.challenge-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
 .spinner-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 300px;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .spinner-icon {
-  font-size: 3rem;
-  color: var(--primary-light);
-  animation: spin 1.5s infinite linear;
+  font-size: 20px;
+  color: #2196f3;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  0% {
+  from {
     transform: rotate(0deg);
   }
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
 
 .loading-text {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  color: var(--primary-color);
+  font-size: 16px;
+  color: #666666;
+  font-weight: 400;
+  font-family: 'Rubik', sans-serif;
+}
+
+/* אנימציה עדינה לטקסט */
+.loading-text {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .loader-container {
+    min-height: 50vh;
+    padding: 20px;
+  }
+  
+  .spinner-container {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .spinner-icon {
+    font-size: 18px;
+  }
+  
+  .loading-text {
+    font-size: 14px;
+  }
 }

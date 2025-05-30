@@ -5,6 +5,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import axios from "axios";
 import { FormEvent, useRef, useState } from "react";
 import { getUserDataFromToken } from "../../utils/authUtils";
+import { useNavigate } from "react-router-dom";
 
 const UpdateUser = () => {
   const { userId, name, email } = getUserDataFromToken();
@@ -14,6 +15,8 @@ const UpdateUser = () => {
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [updateSuccess, setUpdateSuccess] = useState(false);
+  const navigate = useNavigate();
+
 
   // Form validation
   const validateForm = () => {
@@ -66,7 +69,8 @@ const UpdateUser = () => {
         setTimeout(() => {
           setUpdateSuccess(false);
           // You might want to update the stored token or user info here
-        }, 3000);
+          navigate("/"); 
+        }, 4000);
       }
     } catch (e) {
       if (axios.isAxiosError(e)) {

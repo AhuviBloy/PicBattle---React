@@ -101,7 +101,7 @@ interface AiReviewPanelProps {
   creationUrl: string
 }
 
-const AiReviewPanel = ({  challengeDescription, creationDescription, creationUrl }: AiReviewPanelProps) => {
+const AiReviewPanel = ({  challengeDescription, creationDescription }: AiReviewPanelProps) => {
   const [aiResponse, setAiResponse] = useState<string>("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
@@ -123,9 +123,8 @@ const AiReviewPanel = ({  challengeDescription, creationDescription, creationUrl
     
     try {
       const response = await axios.post(`${apiUrl}/api/ai/review`, {
-        ChallengeDescription: challengeDescription,
-        CreationDescription: creationDescription,
-        creationUrl: creationUrl,
+        challengeDescription: challengeDescription,
+        creationDescription: creationDescription,
       })
       setAiResponse(response.data?.response || "לא התקבלה תגובה מה-AI.")
     } catch (err: any) {

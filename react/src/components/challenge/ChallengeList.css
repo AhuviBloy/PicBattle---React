@@ -1,3 +1,6 @@
+
+
+
 .space-challenges-container {
   /* min-height: 100vh;
   padding: 2rem; */
@@ -27,7 +30,55 @@
   padding: 1rem;
 }
 
-.challenges-banner {
+
+
+
+
+/* כותרת ראשית - מתאימה לסגנון של section headers בעמוד הבית */
+.challengePage-header {
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+  margin-top: 40px;
+
+}
+
+.challengePage-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.challengePage-title:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--primary-gradient);
+}
+
+/* .trophy-icon {
+  color: var(--secondary-color);
+  margin-left: 10px;
+  filter: drop-shadow(0 4px 8px rgba(255, 215, 0, 0.4));
+} */
+
+.challengePage-subtitle {
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+  margin: 0;
+  max-width: 600px;
+  margin: 15px auto 0;
+}
+
+/* .challenges-banner {
   background-image: url(/src/assets/challenge-list1.png);
   background-size: cover;
   background-position: center;
@@ -40,7 +91,7 @@
   position: relative;
   overflow: hidden;
   padding: 0 20px;
-}
+} */
 
 /* Space theme elements - commented out but kept for reference */
 
@@ -157,6 +208,173 @@
   background:  rgb(10 19 45) !important;
 }
 
+/* סטיילים לטעינה בסיסית ונעימה */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background-color: #f8f9fa;
+}
+
+.challenge-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.spinner-icon {
+  font-size: 20px;
+  color: #2196f3;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 16px;
+  color: #666666;
+  font-weight: 400;
+  font-family: 'Rubik', sans-serif;
+}
+
+/* אנימציה עדינה לטקסט */
+.loading-text {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .loader-container {
+    min-height: 50vh;
+    padding: 20px;
+  }
+  
+  .spinner-container {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .spinner-icon {
+    font-size: 18px;
+  }
+  
+  .loading-text {
+    font-size: 14px;
+  }
+}/* סטיילים לטעינה בסיסית ונעימה */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background-color: #f8f9fa;
+}
+
+.challenge-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.spinner-icon {
+  font-size: 20px;
+  color: #2196f3;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 16px;
+  color: #666666;
+  font-weight: 400;
+  font-family: 'Rubik', sans-serif;
+}
+
+/* אנימציה עדינה לטקסט */
+.loading-text {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .loader-container {
+    min-height: 50vh;
+    padding: 20px;
+  }
+  
+  .spinner-container {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .spinner-icon {
+    font-size: 18px;
+  }
+  
+  .loading-text {
+    font-size: 14px;
+  }
+}
 
 /* Footer styling */
 .simple-footer {
