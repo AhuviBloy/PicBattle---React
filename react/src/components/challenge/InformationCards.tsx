@@ -561,11 +561,11 @@ const InformationCards: React.FC<InformationCardsProps> = ({ challenge }) => {
     >
       <CardItem
         icon={getRandomIcon(challenge.id)}
-        title={challenge.title || "אתגר"}
+        title={challenge.title || "challenge"}
         description={challenge.description}
         startDate={challenge.startDate}
         endDate={challenge.endDate}
-        buttonText="להצבעה והצגה"
+        buttonText="For voting and presentation"
         onButtonClick={handleCardClick}
         challengeId={challenge.id}
         isVotingClosed={isVotingClosed()}
