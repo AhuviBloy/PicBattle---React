@@ -67,6 +67,10 @@ const FileUploader = ({
     showAlert(msg, 'error', 4000);
   };
 
+  const handleInfo = (msg:string): void => {
+    showAlert(msg, 'info', 3000);
+  };
+
   // טיפול בשינוי קובץ
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -267,9 +271,15 @@ const FileUploader = ({
       >
         {/* <span> */}
           <Fab
-            onClick={() => setOpenModal(true)}
+            onClick={() => {
+              if (isUserLoggedIn) {
+                setOpenModal(true);
+              } else {
+                showAlert("יש להתחבר כדי להעלות יצירה");
+              }
+            }}
             aria-label="chat"
-            disabled={!isUserLoggedIn}
+            // disabled={!isUserLoggedIn}
             sx={{
               position: "fixed",
               right: 30,
