@@ -255,7 +255,7 @@ const UserProfile: React.FC<UserProfileProps> = ({
               },
             }}
           >
-            log out{" "}
+            log out
           </Button>
         </Box>
 

@@ -19,6 +19,7 @@ const Header = () => {
   const handleLogout = () => {
     sessionStorage.removeItem("token");
     setLog(false);
+    setSignUp(false);
     navigate("/");
   };
 
