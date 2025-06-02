@@ -67,9 +67,9 @@ const FileUploader = ({
     showAlert(msg, 'error', 4000);
   };
 
-  // const handleInfo = (msg:string): void => {
-  //   showAlert(msg, 'info', 3000);
-  // };
+  const handleInfo = (msg:string): void => {
+    showAlert(msg, 'info', 3000);
+  };
 
   // טיפול בשינוי קובץ
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -275,7 +275,7 @@ const FileUploader = ({
               if (isUserLoggedIn) {
                 setOpenModal(true);
               } else {
-                showAlert("יש להתחבר כדי להעלות יצירה");
+                handleInfo("יש להתחבר כדי להעלות יצירה");
               }
             }}
             aria-label="chat"
