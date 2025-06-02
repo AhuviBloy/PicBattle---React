@@ -87,7 +87,6 @@ const SignUp = ({ setSignUp }: { setSignUp: (signUp: boolean) => void }) => {
       console.log(e);
       if (e.response && e.response.status === 400) {
         if (e.response.data && e.response.data.errors) {
-          // Handle specific validation errors from API
           const errors = e.response.data.errors;
           if (errors.Email) setEmailError(errors.Email[0]);
           if (errors.Password) setPasswordError(errors.Password[0]);
@@ -107,21 +106,6 @@ const SignUp = ({ setSignUp }: { setSignUp: (signUp: boolean) => void }) => {
         variant="contained"
         className="auth-button signup-button"
         onClick={() => setOpen(true)}
-        // sx={{
-        //   borderRadius: "30px",
-        //   padding: "8px 25px",
-        //   background: "linear-gradient(135deg, #8fabff, #a78fff)",
-        //   color: "white",
-        //   fontWeight: 500,
-        //   transition: "all 0.3s ease",
-        //   textTransform: "none",
-        //   boxShadow: "0 4px 15px rgba(143, 171, 255, 0.4)",
-        //   "&:hover": {
-        //     transform: "translateY(-3px)",
-        //     boxShadow: "0 8px 25px rgba(143, 171, 255, 0.5)",
-        //     background: "linear-gradient(135deg, #a78fff, #8fabff)",
-        //   },
-        // }}
       >
         Sign Up
       </Button>
@@ -417,25 +401,7 @@ const SignUp = ({ setSignUp }: { setSignUp: (signUp: boolean) => void }) => {
                 </Button>
               </Box>
 
-              {/* <Typography
-                variant="body2"
-                sx={{
-                  color: "#666",
-                  textAlign: "center",
-                  mt: 3,
-                }}
-              >
-                Already have an account?{" "}
-                <span
-                  style={{
-                    color: "#a78fff",
-                    fontWeight: 600,
-                    cursor: "pointer",
-                  }}
-                >
-                  Log In
-                </span>
-              </Typography> */}
+             
             </Box>
           </Box>
         </Fade>

@@ -88,21 +88,7 @@ const Login = ({ setLog }: { setLog: (log: boolean) => void }) => {
         className="auth-button login-button"
         variant="outlined"
         onClick={() => setOpen(true)}
-        // sx={{
-        //   borderRadius: "30px",
-        //   padding: "8px 25px",
-        //   background: "linear-gradient(135deg, rgba(143, 171, 255, 0.1), rgba(167, 143, 255, 0.1))",
-        //   borderColor: "rgba(143, 171, 255, 0.5)",
-        //   color: "#050d24",
-        //   fontWeight: 500,
-        //   transition: "all 0.3s ease",
-        //   textTransform: "none",
-        //   "&:hover": {
-        //     transform: "translateY(-3px)",
-        //     borderColor: "rgba(143, 171, 255, 0.8)",
-        //     boxShadow: "0 4px 15px rgba(143, 171, 255, 0.3)",
-        //   },
-        // }}
+       
       >
         Log In
       </Button>
@@ -324,22 +310,7 @@ const Login = ({ setLog }: { setLog: (log: boolean) => void }) => {
                 />
               </Box>
 
-              {/* <Typography
-                variant="body2"
-                sx={{
-                  color: "#8fabff",
-                  textAlign: "right",
-                  mb: 3,
-                  cursor: "pointer",
-                  fontWeight: 500,
-                  "&:hover": {
-                    color: "#a78fff",
-                    textDecoration: "underline",
-                  },
-                }}
-              >
-                Forgot Password?
-              </Typography> */}
+             
 
               {/* Action button */}
               <Box sx={{ mt: 3 }}>
@@ -373,25 +344,7 @@ const Login = ({ setLog }: { setLog: (log: boolean) => void }) => {
                 </Button>
               </Box>
 
-              {/* <Typography
-                variant="body2"
-                sx={{
-                  color: "#666",
-                  textAlign: "center",
-                  mt: 3,
-                }}
-              >
-                Don't have an account?{" "}
-                <span
-                  style={{
-                    color: "#a78fff",
-                    fontWeight: 600,
-                    cursor: "pointer",
-                  }}
-                >
-                  Sign Up
-                </span>
-              </Typography> */}
+              
             </Box>
           </Box>
         </Fade>

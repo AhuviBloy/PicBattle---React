@@ -43,32 +43,7 @@ class CreationStore {
     }
   }
 
-  // async vote(creationId: number, userId: any, challengeId: number,ip:any,star:number) {
-  //   try {
-  //     const rating = {
-  //       CreationId: creationId,
-  //       ChallengeId: challengeId,
-  //       UserId: userId | 0,
-  //       Stars: star, 
-  //       IpAddress: ip || ""
-  //     };
-  
-  //     if(star==-1){
-  //       const res = await axios.delete(`${this.apiUrl}/api/rating/${ip}/${creationId}`);
-  //       if (res.status === 200) {
-  //         await this.fetchCreations(); // עדכון הסטור
-  //       }
-  //     }else{
-  //       const res = await axios.post(`${this.apiUrl}/api/rating`, rating);
-  //       if (res.status === 200) {
-  //         await this.fetchCreations(); // עדכון הסטור
-  //       }
-  //     }
-      
-  //   } catch (err) {
-  //     console.error("Failed to vote", err);
-  //   }
-  // }
+
 
   async vote(creationId: number, userId: any, challengeId: number, ip: any, star: number) {
     try {
@@ -85,7 +60,6 @@ class CreationStore {
       } else {
         await axios.post(`${this.apiUrl}/api/rating`, rating);
       }
-      // אין קריאה ל-fetchCreations כאן! סומכים על הסטייט המעודכן ב-React.
     } catch (err) {
       console.error("Failed to vote", err);
     }
@@ -99,7 +73,7 @@ class CreationStore {
 
       const res = await axios.get(`${this.apiUrl}/api/rating/user/${userId}`);
       console.log(res.data);
-      return res.data; // מחזיר את היצירות שהמשתמש הצביע להן
+      return res.data;
     } catch (err) {
       console.error("Failed to fetch voted creations by user", err);
       return [];
@@ -113,7 +87,7 @@ class CreationStore {
       
       const res = await axios.get(`${this.apiUrl}/api/rating/ip/${ipAddress}`);
       console.log(res.data);
-      return res.data; // מחזיר את המזהים של היצירות שהצביעו להן לפי ה-IP
+      return res.data; 
     } catch (err) {
       console.error("Failed to fetch voted creations by IP", err);
       return [];
@@ -138,36 +112,12 @@ class CreationStore {
       console.log(res.data);
       
       return res.data;
-      // runInAction(() => {
-      // });
+  
     } catch (err) {
       console.error(`Failed to fetch creations for challenge ${challengeId}`, err);
     }
   }
 
-  // async fetchCreationsByChallengeId(challengeId: any) {
-  //   try {
-  //     const res = await axios.get(`${this.apiUrl}/api/challenge/creations-for-challenge/${challengeId}`);
-  //     console.log(res.data);
-      
-  //     return res.data;
-  //     // runInAction(() => {
-  //     // });
-  //   } catch (err) {
-  //     console.error(`Failed to fetch creations for challenge ${challengeId}`, err);
-  //   }
-  // }
-  
-
-  // async getCreatorNameByCreationId(creationId: number): Promise<string> {
-  //   try {
-  //     const res = await axios.get(`${this.apiUrl}/api/creation/${creationId}/creator-name`);
-  //     return res.data.name; // או איך שמגיע מה-API
-  //   } catch (err) {
-  //     console.error("Failed to fetch creator name", err);
-  //     return "";
-  //   }
-  // }
 }
 
 

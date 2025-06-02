@@ -56,7 +56,6 @@ const FileUploader = ({
 
 
 
-  // שליפת פרטי המשתמש מה-token
 
 
   const handleSuccess = (msg:string): void => {
@@ -102,27 +101,6 @@ const FileUploader = ({
   const handleDragLeave = () => {
     setIsDragging(false);
   };
-
-  // const handleDrop = (e: { preventDefault: () => void; dataTransfer: { files: any[]; }; }) => {
-  //   e.preventDefault();
-  //   setIsDragging(false);
-
-  //   if (e.dataTransfer.files?.[0]) {
-  //     const droppedFile = e.dataTransfer.files[0];
-  //     setFile(droppedFile);
-
-  //     // יצירת תצוגה מקדימה לתמונות
-  //     if (droppedFile.type.startsWith('image/')) {
-  //       const reader = new FileReader();
-  //       reader.onloadend = () => {
-  //         setPreview(reader.result);
-  //       };
-  //       reader.readAsDataURL(droppedFile);
-  //     } else {
-  //       setPreview(null);
-  //     }
-  //   }
-  // };
 
   // פונקציה להעלאת הקובץ
   const handleUpload = async () => {
@@ -235,33 +213,7 @@ const FileUploader = ({
     <>
 
       <AlertContainer alerts={alerts} removeAlert={removeAlert} />
-      {/* כפתור סטיקי מעוצב */}
-      {/* <Button
-        variant="contained"
-        onClick={() => setOpenModal(true)}
-        style={{
-          position: 'fixed',
-          bottom: '150px',
-          right: '30px',
-          borderRadius: '50%',
-          width: '60px',
-          height: '60px',
-          minWidth: 'unset',
-          background: 'linear-gradient(135deg, #8A4FFF 0%, #4FC1FF 100%)',
-          boxShadow: '0 4px 12px rgba(138, 79, 255, 0.4)',
-          zIndex: 1000,
-          transition: 'all 0.3s ease',
-        }}
-        sx={{
-          '&:hover': {
-            background: 'linear-gradient(135deg, #7A3FEF 0%, #3FB1EF 100%)',
-            transform: 'scale(1.05) rotate(5deg)',
-            boxShadow: '0 6px 16px rgba(138, 79, 255, 0.6)',
-          }
-        }}
-      >
-        <CloudUpload />
-      </Button> */}
+     
 
       <Tooltip
         title=" העלה יצירה "
@@ -269,7 +221,6 @@ const FileUploader = ({
         TransitionComponent={Zoom}
         arrow
       >
-        {/* <span> */}
           <Fab
             onClick={() => {
               if (isUserLoggedIn) {
@@ -279,11 +230,10 @@ const FileUploader = ({
               }
             }}
             aria-label="chat"
-            // disabled={!isUserLoggedIn}
             sx={{
               position: "fixed",
               right: 30,
-              bottom: 150, // Positioned above the upload button
+              bottom: 150, 
               zIndex: 1000,
               width: 60,
               height: 60,
@@ -299,10 +249,8 @@ const FileUploader = ({
           >
             <CloudUpload />
           </Fab>
-        {/* </span> */}
       </Tooltip>
 
-      {/* מודל מעוצב */}
       <Modal
         open={openModal}
         onClose={resetForm}
@@ -331,7 +279,6 @@ const FileUploader = ({
               direction: "rtl",
             }}
           >
-            {/* כותרת מעוצבת */}
             <Box
               sx={{
                 background: "linear-gradient(135deg, #8A4FFF 0%, #4FC1FF 100%)",

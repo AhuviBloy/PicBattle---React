@@ -28,7 +28,7 @@ const ChallengeHistory = observer(() => {
       setWinners(winnersData);
       setTimeout(() => {
         setLoading(false);
-      }, 800); // Adding a small delay for smoother loading appearance
+      }, 800); 
     };
 
     fetchData();
